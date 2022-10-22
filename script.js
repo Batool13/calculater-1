@@ -44,7 +44,6 @@ window.onload =  function () {
     equal_dom.addEventListener("click",()=> display("="));
     clear_dom = document.getElementById("clear-btn");
     clear_dom.addEventListener("click",()=> display("clear"));
-
 }
 
 function operate (num,operater,num2){
@@ -75,7 +74,7 @@ function display(singleString)
         if((singleString=="*")||(singleString=="-")||
         (singleString=="+")||(singleString=="/"))
         {
-            operater_array.push(singleString);
+            operater_array[0]=(singleString);
         }
 
         
@@ -83,24 +82,14 @@ function display(singleString)
         if (singleString == "=") {
             myText=display_div_dom.textContent;
             number_array = myText.match(/\d+/g);
-            // for( let index=0 ; index<number_array.length ; index++)
-            // {
-            // if (total!= ( 0 || undefined || isNaN)){
-            //     total=(operate(number_array[index],operater_array[index],number_array[index+1]));
 
-            // }
-            // if((parseFloat(total))!=isNaN)
-            // total=((parseFloat(total))+(operate(number_array[index],operater_array[index],number_array[index+1])));
-
-            // console.log(total)
-            // display_div_dom.textContent+=total;
-            // }
             if((number_array[1]==0)&&(operater_array=="/"))
             {
                 window.alert(`Please enter valid number "Zero not allowd"`)
                 clearDisplay();
                 
             }
+
             total=(operate(number_array[0],operater_array[0],number_array[1]));
                  display_div_dom.textContent=total;
         }
@@ -110,6 +99,7 @@ function display(singleString)
 
         clearDisplay();
     }
+
 }
 
 function clearDisplay(){
